@@ -53,9 +53,9 @@ fn main() {
     ctx.text("Open Font License OFL v1.1", W-M, M);
     // Bottom
     ctx.text_align(TextAlign::Left);
-    ctx.text("Virtua Grotesk Regular v0.1.0", M, H-(M*1.5));
+    ctx.text("Virtua Grotesk Regular v0.1", M, H-(M*1.5));
     ctx.text_align(TextAlign::Right);
-    ctx.text("$elih 0x7ca26c466", W-M, H-(M*1.5));
+    ctx.text("$elih on Zora 0x7ca26c466", W-M, H-(M*1.5));
     // 0x7ca26c4663860590c29a63c20cfc465b2dcd246b
 
     // Character sets
