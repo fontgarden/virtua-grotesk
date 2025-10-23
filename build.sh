@@ -10,7 +10,10 @@ echo "Building Virtua Grotesk fonts with fontc..."
 # Create fonts directory if it doesn't exist
 mkdir -p fonts
 
-# Build the font from UFO sources
-fontc sources/virtua-grotesk-regular.ufo -o fonts/VirtuaGrotesk-Regular.ttf
+# Build variable font and all instances from designspace
+echo "Building variable font and instances..."
+fontc sources/VirtuaGrotesk.designspace -o fonts/
 
 echo "Build complete! Fonts are in the fonts/ directory"
+echo "- Variable font: VirtuaGrotesk[wght].ttf"
+echo "- Static instances: VirtuaGrotesk-Regular.ttf, VirtuaGrotesk-Medium.ttf, VirtuaGrotesk-SemiBold.ttf, VirtuaGrotesk-Bold.ttf"
