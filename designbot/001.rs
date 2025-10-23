@@ -11,7 +11,7 @@ fn main() {
     // Create canvas, renderer, and bg color
     let mut ctx = Canvas::new(W, H);
     let mut renderer = Renderer::new(W as u32, H as u32);
-    ctx.background(Color::rgb(9, 9, 9));
+    ctx.background(Color::rgb(20, 20, 20));
 
     // Load the font
     renderer.load_font(
@@ -28,6 +28,11 @@ fn main() {
     let white = Color::white();
     let light_gray = Color::rgb(50, 50, 50);
 
+    // Add Auxiliry text bars
+    //ctx.fill(Color::rgb(150, 150, 150));
+    //ctx.rect(M, M, W-(M*2.0), cell_height*2.0);
+    //ctx.rect(M, H-(M*1.875), H-(M*2.0), cell_height*2.0);
+
     // Draw grid vertical lines
     ctx.stroke(light_gray).stroke_width(2.0);
     for i in 0..=G as usize {
@@ -43,52 +48,53 @@ fn main() {
 
     // Set font
     ctx.font("Virtua Grotesk");
-    ctx.fill(Color::rgb(225, 225, 225));
+    ctx.fill(Color::rgb(175, 175, 175));
 
     // Auxiliary info
-    ctx.font_size(64.0);
+    ctx.font_size(64.0+8.0);
     // Top
-    ctx.text("\u{E008} Font.Garden/virtua", M, M);
+    ctx.text("\u{E008} Font.Garden/virtua", M, M*0.95);
     ctx.text_align(TextAlign::Right);
-    ctx.text("Open Font License OFL v1.1", W-M, M);
+    ctx.text("Open Font License OFL v1.1", W-M, M*0.95);
     // Bottom
     ctx.text_align(TextAlign::Left);
     ctx.text("Virtua Grotesk Regular v0.1", M, H-(M*1.5));
     ctx.text_align(TextAlign::Right);
-    ctx.text("$elih on Zora 0x7ca26c466", W-M, H-(M*1.5));
+    ctx.text("$elih on Zora: 0x7ca2", W-M, H-(M*1.5));
     // 0x7ca26c4663860590c29a63c20cfc465b2dcd246b
 
     // Character sets
-    let mut y_pos = H - M - (U * 26.3);
+    let mut y_pos = H - M - (U * 25.75);
     ctx.text_align(TextAlign::Left);
-    ctx.font_size(256.0);
+    ctx.font_size(256.0-8.0);
 
     // Uppercase letters - line 1
+    ctx.fill(Color::rgb(175, 175, 175));
     ctx.text("ABCDEFGHIJ", M-6.0, y_pos);
-    y_pos += U * 3.4;
+    y_pos += U * 3.30;
 
     // Uppercase letters - line 2
-    ctx.text("KLMNOPQR", M-6.0, y_pos);
-    y_pos += U * 3.4;
+    ctx.text("KLMNOPQR", M-20.0, y_pos);
+    y_pos += U * 3.30;
 
     // Uppercase letters - line 3
-    ctx.text("STUVWXYZ", M, y_pos);
-    y_pos += U * 3.4;
+    ctx.text("STUVWXYZ", M-8.0, y_pos);
+    y_pos += U * 3.30;
 
     // Numbers
-    ctx.text("0123456789", M, y_pos);
-    y_pos += U * 3.4;
+    ctx.text("0123456789", M-24.0, y_pos);
+    y_pos += U * 3.30;
 
     // Lowercase letters - line 1
-    ctx.text("abcdefghij", M, y_pos);
-    y_pos += U * 3.4;
+    ctx.text("abcdefghij", M-8.0, y_pos);
+    y_pos += U * 3.30;
 
     // Lowercase letters - line 2
-    ctx.text("klmnopqr", M, y_pos);
-    y_pos += U * 3.4;
+    ctx.text("klmnopqr", M-24.0, y_pos);
+    y_pos += U * 3.30;
 
     // Lowercase letters - line 3
-    ctx.text("stuvwxyz", M, y_pos);
+    ctx.text("stuvwxyz", M-16.0, y_pos);
 
     // Arabic sample text
     //ctx.fill(Color::rgb(255, 255, 255));

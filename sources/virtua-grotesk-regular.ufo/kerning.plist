@@ -197,6 +197,8 @@
     <dict>
       <key>public.kern2.eight</key>
       <integer>-64</integer>
+      <key>public.kern2.o</key>
+      <integer>-128</integer>
     </dict>
     <key>public.kern1.six</key>
     <dict>
@@ -243,6 +245,8 @@
     <dict>
       <key>public.kern2.o</key>
       <integer>-64</integer>
+      <key>public.kern2.seven</key>
+      <integer>-48</integer>
       <key>public.kern2.y</key>
       <integer>-16</integer>
     </dict>
@@ -250,6 +254,11 @@
     <dict>
       <key>public.kern2.comma</key>
       <integer>-128</integer>
+    </dict>
+    <key>public.kern1.zero</key>
+    <dict>
+      <key>public.kern2.period</key>
+      <integer>-32</integer>
     </dict>
     <key>s</key>
     <dict>
