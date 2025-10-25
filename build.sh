@@ -1,19 +1,34 @@
 #!/bin/bash
 
-# Build script for Virtua Grotesk fonts using fontc
-# https://github.com/googlefonts/fontc
+# Build script for Virtua Grotesk fonts
+# Uses fontc for variable font and fontmake for static instances
 
 set -e
 
-echo "Building Virtua Grotesk fonts with fontc..."
+# Activate virtual environment
+source ~/Py/venvs/basic-fonts/bin/activate
+
+echo "Building Virtua Grotesk fonts..."
 
 # Create fonts directory if it doesn't exist
 mkdir -p fonts
 
-# Build variable font and all instances from designspace
-echo "Building variable font and instances..."
-fontc sources/VirtuaGrotesk.designspace -o fonts/
+# Build variable font with fontc (faster)
+echo ""
+echo "Building variable font with fontc..."
+fontc sources/VirtuaGrotesk.designspace
 
-echo "Build complete! Fonts are in the fonts/ directory"
-echo "- Variable font: VirtuaGrotesk[wght].ttf"
-echo "- Static instances: VirtuaGrotesk-Regular.ttf, VirtuaGrotesk-Medium.ttf, VirtuaGrotesk-SemiBold.ttf, VirtuaGrotesk-Bold.ttf"
+# Move and rename the variable font
+if [ -f "build/font.ttf" ]; then
+    mv build/font.ttf fonts/VirtuaGrotesk-VF.ttf
+    echo "✓ Variable font built: VirtuaGrotesk-VF.ttf"
+fi
+
+# Build static instances with fontmake
+echo ""
+echo "Building static instances with fontmake..."
+fontmake -m sources/VirtuaGrotesk.designspace -i -o ttf --output-dir fonts/
+
+echo ""
+echo "Build complete! Fonts are in the fonts/ directory:"
+ls -lh fonts/*.ttf
